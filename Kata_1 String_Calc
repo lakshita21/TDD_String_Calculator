@@ -1,0 +1,48 @@
+
+function add(numbers : string) : number{
+       let sum : number = 0;
+       numbers = numbers.replace("\n","");
+       let arr = numbers.split(",").map(Number);
+       arr.forEach((val)=>{
+              if(val >= 0 && val < 1000){
+                     sum += val;
+              } 
+          else if(val<0)
+         {
+              sum = -1;
+         } 
+       })
+       return sum;
+}
+
+
+let sumOfNumbers : number = 0;
+
+// Empty Parameter
+sumOfNumbers = add("");
+console.log("sum is " + sumOfNumbers);
+
+//Singl Parameter
+sumOfNumbers = add("1");
+console.log("sum is " + sumOfNumbers);
+
+// Two Parameters
+sumOfNumbers = add("1,2");
+console.log("sum is " + sumOfNumbers);
+
+//Multiple Values
+sumOfNumbers = add("1,2,3,40,5");
+console.log("sum is " + sumOfNumbers);
+
+//Value with new lines between numbers
+sumOfNumbers = add("1,2,3,4,\n6");
+console.log("sum is " + sumOfNumbers);
+
+//Negative Number
+sumOfNumbers = add("1,2,3,4,-10");
+if(sumOfNumbers == -1)
+console.log("Negative numbers are not allowed");
+
+// Value with differnet delimiter
+sumOfNumbers = add("1,1001");
+console.log("sum is " + sumOfNumbers);
